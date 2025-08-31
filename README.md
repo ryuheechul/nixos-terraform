@@ -39,6 +39,14 @@ nixos-rebuild switch --flake github:ryuheechul/nixos-terraform#nixos-proxmox-lxc
 
 This basically will give you, few missing packages that makes your life tad bit easier if you are planning to do poke around and run things within the shell directly.
 
+> [!WARNING]
+> `nix-shell -p ponysay` doesn't seem to work with flaked NixOS
+>
+> (yes I'm new to using nixos with flakes as [I build my "regular" machines without flake](https://github.com/ryuheechul/dotfiles/tree/master/bootstrap/foundation/nixos) as that works better for me)
+> You can however now run `nix shell nixpkgs#ponysay` instead
+>
+> If anyone knows how to use `nix-shell -p ponysay` in flaked NixOS, please let me know to save my muscle memory for the time being!
+
 ## Caveats
 
 Also in case it wasn't obvious, keep that in mind that this generation be overwritten by whatever subsequent build that you do with your own configuration. This "terraforming" just makes it easier to run that just in case you first build and switch process would be like cloning a git repo and run command from a Makefile.
