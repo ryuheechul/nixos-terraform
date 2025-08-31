@@ -21,9 +21,10 @@ These are what I looked at when I first tried to spin up:
 - https://www.jacob-swanson.com/posts/nixos-proxmox-lxc-setup
 - https://wiki.nixos.org/wiki/Proxmox_Virtual_Environment#LXC
 - https://neal.codes/blog/2024-06-04-nixos-proxmox-lxc/
-- https://taoofmac.com/space/blog/2024/08/17/1530
+- [Running NixOS on Proxmox LXC](https://taoofmac.com/space/blog/2024/08/17/1530)
 - https://mtlynch.io/notes/nixos-proxmox/
 - https://aran.dev/posts/deploying-nixos-on-proxmox/
+- https://www.reddit.com/r/NixOS/comments/1aw9k9v/default_username_password_for_nixos_lxc_on_proxmox/
 
 After trial and error (and now in 2025), what I would do are followings:
 Choose one from here https://hydra.nixos.org/job/nixos/release-25.05/nixos.proxmoxLXC.x86_64-linux#tabs-status and copy the URL and feed that to a CT template.
