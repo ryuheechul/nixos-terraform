@@ -3,9 +3,9 @@
 > [!NOTE]
 > This is nothing to do with the terraform the tool but the concept terraforming.
 
-A quick and dirty way to make your freshly spun NixOS instance little more inhabitable.
+A quick and dirty way to make your freshly spun NixOS instance a little more habitable.
 
-## Motivations
+## Motivation
 
 Where the heck is `/etc/nixos/configuration.nix` on my freshly spun NixOS LXC container? How can I install anything to make the life easier for this initial phase of trying to do something in here? (especially when `nix-shell -p ponysay` doesn't work immediately!)
 
@@ -26,7 +26,7 @@ These are what I looked at when I first tried to spin up:
 - https://aran.dev/posts/deploying-nixos-on-proxmox/
 - https://www.reddit.com/r/NixOS/comments/1aw9k9v/default_username_password_for_nixos_lxc_on_proxmox/
 
-After trial and error (and now in 2025), what I would do are followings:
+After trial and error (and now in 2025), what I would do are the following:
 Choose one from here https://hydra.nixos.org/job/nixos/release-25.05/nixos.proxmoxLXC.x86_64-linux#tabs-status and copy the URL and feed that to a CT template.
 
 And create a container based on that.
@@ -38,10 +38,10 @@ And create a container based on that.
 nixos-rebuild switch --flake github:ryuheechul/nixos-terraform#nixos-proxmox-lxc
 ```
 
-This basically will give you, few missing packages that makes your life tad bit easier if you are planning to do poke around and run things within the shell directly.
+This basically will give you a few missing packages that make your life a tad bit easier if you are planning to poke around and run things directly within the shell.
 
 > [!WARNING]
-> `nix-shell -p ponysay` doesn't seem to work with flaked NixOS
+> `nix-shell -p ponysay` doesn't seem to work with flake-based NixOS
 >
 > (yes I'm new to using nixos with flakes as [I build my "regular" machines without flake](https://github.com/ryuheechul/dotfiles/tree/master/bootstrap/foundation/nixos) as that works better for me)
 > You can however now run `nix shell nixpkgs#ponysay` instead
@@ -50,6 +50,6 @@ This basically will give you, few missing packages that makes your life tad bit 
 
 ## Caveats
 
-Also in case it wasn't obvious, keep that in mind that this generation be overwritten by whatever subsequent build that you do with your own configuration. This "terraforming" just makes it easier to run that just in case you first build and switch process would be like cloning a git repo and run command from a Makefile.
+Also in case it wasn't obvious, keep that in mind that this generation will be overwritten by whatever subsequent build that you do with your own configuration. This "terraforming" just makes it easier to run that just in case your initial build and switch process involves cloning a git repo and running a command from a Makefile.
 
-But I also just learned that you can just do something like `nixos-rebuild switch --flake .#your-machine --target-host user@ssh-host`, which makes this nixos-terraform irrelevant if you already have a buildable nix configuration for a machine ready to go.
+But I also just learned that you can just do something like `nixos-rebuild switch --flake .#your-machine --target-host user@ssh-host`, which makes this nixos-terraform becomes irrelevant if you already have a buildable nix configuration for a machine ready to go.
